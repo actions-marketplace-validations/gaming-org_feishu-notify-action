@@ -119,6 +119,14 @@ export function parseEventToTemplateData(): FeishuVars {
     case 'public':
       break
     case "pull_request":
+      break;
+    case 'pull_request_comment':
+      break
+    case 'pull_request_review':
+      break
+    case 'pull_request_review_comment':
+      break
+    case 'pull_request_target':
       vars.title = context.payload.pull_request?.title ?? "";
       vars.description = `PR #${context.payload.pull_request?.number} ${context.payload.action}`;
       vars.html_url = context.payload.pull_request?.html_url;
@@ -128,14 +136,6 @@ export function parseEventToTemplateData(): FeishuVars {
       vars.created_at = context.payload.pull_request?.created_at ?? "";
       vars.updated_at = context.payload.pull_request?.updated_at ?? "";
       vars.header_color = context.payload.action === "closed" ? "red" : "blue";
-      break;
-    case 'pull_request_comment':
-      break
-    case 'pull_request_review':
-      break
-    case 'pull_request_review_comment':
-      break
-    case 'pull_request_target':
       break
     case "push":
       vars.commit_sha = context.payload.head_commit?.id ?? "";
@@ -168,6 +168,9 @@ export function parseEventToTemplateData(): FeishuVars {
     case 'status':
       break
     case 'watch':
+      vars.title = "Watch event triggered";
+      vars.description = `Triggered by starring the repository`;
+      vars.header_color = "orange";
       break
     case 'workflow_call':
       break
