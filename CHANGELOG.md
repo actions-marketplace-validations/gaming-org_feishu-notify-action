@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.3.0...v1.4.0) (2025-10-11)
+
+
+### Features
+
+* **github:** add action field and enhance PR event handling ([c52d90f](https://github.com/gaming-org/feishu-notify-action/commit/c52d90fedde77d141764decd539bef8e96c9a25a))
+
 ## [1.3.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.2.0...v1.3.0) (2025-10-11)
 
 
