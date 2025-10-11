@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.0...v1.5.1) (2025-10-11)
+
+
+### Bug Fixes
+
+* **github:** improve PR description formatting and action handling ([235bdb9](https://github.com/gaming-org/feishu-notify-action/commit/235bdb9e26ac7a45e210a28ab85ad5d3b02dde58))
+
 ## [1.5.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.4.0...v1.5.0) (2025-10-11)
 
 
