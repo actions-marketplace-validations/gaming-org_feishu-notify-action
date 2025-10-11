@@ -25,7 +25,7 @@ export function parseEventToTemplateData(): FeishuVars {
     ? core.getInput("header_color")
     : process.env.INPUT_HEADER_COLOR || "auto";
 
-  const action = context.action;
+  const action = context.payload.action;
   const actor = context.actor;
   const eventName = context.eventName;
   const repo = context.payload.repository?.name || "Unknown";
@@ -38,7 +38,7 @@ export function parseEventToTemplateData(): FeishuVars {
     repo_name: repo,
     event_type: eventName,
     event_type_display: eventName.replace(/_/g, " ").toUpperCase(),
-    action,
+    action: action || "unknown",
     actor,
     actor_url: `https://github.com/${actor}`,
     ref_name: ref,
@@ -123,23 +123,23 @@ export function parseEventToTemplateData(): FeishuVars {
       break
     case "pull_request":
       vars.title = context.payload.pull_request?.title ?? "";
-      vars.description = `PR #${context.payload.pull_request?.number} ${context.payload.action}`;
+      vars.description = `PR ${context.payload.pull_request?.html_url ? `[#${context.payload.pull_request?.number}](${context.payload.pull_request?.html_url})` : `#${context.payload.pull_request?.number}`} ${context.payload.action}`;
       break;
     case 'pull_request_comment':
       vars.title = context.payload.pull_request?.title ?? "";
-      vars.description = `PR #${context.payload.pull_request?.number} comment. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
+      vars.description = `PR ${context.payload.pull_request?.html_url ? `[#${context.payload.pull_request?.number}](${context.payload.pull_request?.html_url})` : `#${context.payload.pull_request?.number}`} comment. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n From **${context.payload.pull_request?.head?.ref}** to **${context.payload.pull_request?.base?.ref}**`;
       break
     case 'pull_request_review':
       vars.title = context.payload.pull_request?.title ?? "";
-      vars.description = `PR #${context.payload.pull_request?.number} request review. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
+      vars.description = `PR ${context.payload.pull_request?.html_url ? `[#${context.payload.pull_request?.number}](${context.payload.pull_request?.html_url})` : `#${context.payload.pull_request?.number}`} request review. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n From **${context.payload.pull_request?.head?.ref}** to **${context.payload.pull_request?.base?.ref}**`;
       break
     case 'pull_request_review_comment':
       vars.title = context.payload.pull_request?.title ?? "";
-      vars.description = `PR #${context.payload.pull_request?.number} review comment. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
+      vars.description = `PR ${context.payload.pull_request?.html_url ? `[#${context.payload.pull_request?.number}](${context.payload.pull_request?.html_url})` : `#${context.payload.pull_request?.number}`} review comment. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n From **${context.payload.pull_request?.head?.ref}** to **${context.payload.pull_request?.base?.ref}**`;
       break
     case 'pull_request_target':
       vars.title = context.payload.pull_request?.title ?? "";
-      vars.description = `PR #${context.payload.pull_request?.number} action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
+      vars.description = `PR ${context.payload.pull_request?.html_url ? `[#${context.payload.pull_request?.number}](${context.payload.pull_request?.html_url})` : `#${context.payload.pull_request?.number}`} action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n From **${context.payload.pull_request?.head?.ref}** to **${context.payload.pull_request?.base?.ref}**`;
       vars.html_url = context.payload.pull_request?.html_url;
       vars.commit_sha = context.payload.pull_request?.head?.sha ?? "";
       vars.commit_message = context.payload.pull_request?.body ?? "";
