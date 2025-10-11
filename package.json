@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
     "@larksuiteoapi/node-sdk": "^1.55.0"
   },
   "devDependencies": {
