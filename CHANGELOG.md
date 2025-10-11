@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.1.0...v1.2.0) (2025-10-11)
+
+
+### Features
+
+* add GitHub event parsing for Feishu card template data ([8389ef6](https://github.com/gaming-org/feishu-notify-action/commit/8389ef63d43446b2aee5611ef977bc1651412b7e))
+* add GitHub event parsing for Feishu card template data ([7a525dc](https://github.com/gaming-org/feishu-notify-action/commit/7a525dc2cf8840e76cad1e7ff71914304a4a956b))
+
 ## [1.1.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.0.0...v1.1.0) (2025-09-30)
 
 
