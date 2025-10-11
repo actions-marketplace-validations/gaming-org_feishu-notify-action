@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.4.0...v1.5.0) (2025-10-11)
+
+
+### Features
+
+* **event-parser:** add action context and enhance PR event details ([0b6d9d9](https://github.com/gaming-org/feishu-notify-action/commit/0b6d9d964619c79ccdde54885b36fc3dc634182d))
+
 ## [1.4.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.3.0...v1.4.0) (2025-10-11)
 
 
