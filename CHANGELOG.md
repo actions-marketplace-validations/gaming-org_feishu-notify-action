@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.2.0...v1.3.0) (2025-10-11)
+
+
+### Features
+
+* add template data for watch event and reorder pull request cases ([dd4b2bb](https://github.com/gaming-org/feishu-notify-action/commit/dd4b2bb2f17e35db7e3e812f7d52fab89affc931))
+* **github:** add watch event handling with title and description ([58a1352](https://github.com/gaming-org/feishu-notify-action/commit/58a1352bb3f41ddab8c3debef9153470661e2f87))
+
 ## [1.2.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.1.0...v1.2.0) (2025-10-11)
 
 
