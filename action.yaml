@@ -18,8 +18,8 @@ inputs:
     description: 'Feishu chat/group ID'
     required: true
   template_data:
-    description: 'Card template variables (JSON string)'
-    required: true
+    description: 'Card template variables (JSON string). If omitted, data is built from GitHub event.'
+    required: false
 runs:
   using: 'node20'
   main: 'ncc-out/index.js'
