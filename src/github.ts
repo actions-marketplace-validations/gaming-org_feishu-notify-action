@@ -5,6 +5,7 @@ export interface FeishuVars {
   repo_name: string;
   event_type: string;
   event_type_display: string;
+  action: string;
   actor: string;
   actor_url: string;
   ref_name: string;
@@ -24,6 +25,7 @@ export function parseEventToTemplateData(): FeishuVars {
     ? core.getInput("header_color")
     : process.env.INPUT_HEADER_COLOR || "auto";
 
+  const action = context.action;
   const actor = context.actor;
   const eventName = context.eventName;
   const repo = context.payload.repository?.name || "Unknown";
@@ -36,6 +38,7 @@ export function parseEventToTemplateData(): FeishuVars {
     repo_name: repo,
     event_type: eventName,
     event_type_display: eventName.replace(/_/g, " ").toUpperCase(),
+    action,
     actor,
     actor_url: `https://github.com/${actor}`,
     ref_name: ref,
@@ -119,23 +122,31 @@ export function parseEventToTemplateData(): FeishuVars {
     case 'public':
       break
     case "pull_request":
+      vars.title = context.payload.pull_request?.title ?? "";
+      vars.description = `PR #${context.payload.pull_request?.number} ${context.payload.action}`;
       break;
     case 'pull_request_comment':
+      vars.title = context.payload.pull_request?.title ?? "";
+      vars.description = `PR #${context.payload.pull_request?.number} comment. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
       break
     case 'pull_request_review':
+      vars.title = context.payload.pull_request?.title ?? "";
+      vars.description = `PR #${context.payload.pull_request?.number} request review. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
       break
     case 'pull_request_review_comment':
+      vars.title = context.payload.pull_request?.title ?? "";
+      vars.description = `PR #${context.payload.pull_request?.number} review comment. action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
       break
     case 'pull_request_target':
       vars.title = context.payload.pull_request?.title ?? "";
-      vars.description = `PR #${context.payload.pull_request?.number} ${context.payload.action}`;
+      vars.description = `PR #${context.payload.pull_request?.number} action:${context.payload.action}, merged:${context.payload.pull_request?.merged}\n Branch: ${context.payload.pull_request?.base?.ref}<-${context.payload.pull_request?.head?.ref}`;
       vars.html_url = context.payload.pull_request?.html_url;
       vars.commit_sha = context.payload.pull_request?.head?.sha ?? "";
       vars.commit_message = context.payload.pull_request?.body ?? "";
       vars.status = context.payload.action;
       vars.created_at = context.payload.pull_request?.created_at ?? "";
       vars.updated_at = context.payload.pull_request?.updated_at ?? "";
-      vars.header_color = context.payload.action === "closed" ? "red" : "blue";
+      vars.header_color = context.payload.action === "closed" ? context.payload.pull_request?.merged ? "green" : "red" : "blue";
       break
     case "push":
       vars.commit_sha = context.payload.head_commit?.id ?? "";
