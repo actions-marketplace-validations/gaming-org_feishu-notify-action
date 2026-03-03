@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.1...v1.5.2) (2026-03-03)
+
+
+### Bug Fixes
+
+* upgrade dependencies to resolve vulnerabilities ([fd4eb96](https://github.com/gaming-org/feishu-notify-action/commit/fd4eb96fa4718a85a03d929fa8d7d33d5ea28b99))
+* upgrade dependencies to resolve vulnerabilities ([57b6099](https://github.com/gaming-org/feishu-notify-action/commit/57b6099c082b90c41c9eb116e31c3c7c177c93a6))
+
 ## [1.5.1](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.0...v1.5.1) (2025-10-11)
 
 
