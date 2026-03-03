@@ -1,0 +1,332 @@
+{
+  "name": "GitHub Universal Event Notification",
+  "dsl": {
+    "schema": "2.0",
+    "config": {
+        "update_multi": true,
+        "style": {
+            "text_size": {
+                "normal_v2": {
+                    "default": "normal",
+                    "pc": "normal",
+                    "mobile": "heading"
+                }
+            }
+        }
+    },
+    "body": {
+        "direction": "vertical",
+        "padding": "12px 12px 12px 12px",
+        "elements": [
+            {
+                "tag": "markdown",
+                "content": "Repo: **${repo_name}** · Event: **${event_type_display}** · Action: **${action}**",
+                "text_align": "left",
+                "text_size": "normal_v2"
+            },
+            {
+                "tag": "markdown",
+                "content": "${title}",
+                "text_align": "left",
+                "text_size": "normal_v2"
+            },
+            {
+                "tag": "markdown",
+                "content": "${description}",
+                "text_align": "left",
+                "text_size": "normal_v2",
+                "margin": "0px 0px 12px 0px"
+            },
+            {
+                "tag": "hr",
+                "margin": "0px 0px 0px 0px"
+            },
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "Commit: ${commit_sha}",
+                    "text_size": "normal_v2"
+                },
+                "icon": {
+                    "tag": "standard_icon",
+                    "token": "doc_outlined",
+                    "color": "black"
+                }
+            },
+            {
+                "tag": "markdown",
+                "content": "${commit_message}",
+                "text_align": "left",
+                "text_size": "normal_v2",
+                "margin": "0px 0px 0px 24px"
+            },
+            {
+                "tag": "hr",
+                "margin": "0px 0px 0px 0px"
+            },
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "Actor: ${actor}",
+                    "text_size": "normal_v2"
+                },
+                "icon": {
+                    "tag": "standard_icon",
+                    "token": "robot_outlined",
+                    "color": "black"
+                }
+            },
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "Branch/Tag: ${ref_name}",
+                    "text_size": "normal_v2",
+                    "text_align": "left"
+                },
+                "icon": {
+                    "tag": "standard_icon",
+                    "token": "label-change_outlined",
+                    "color": "black"
+                }
+            },
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "Status: ${status}",
+                    "text_size": "normal_v2"
+                },
+                "icon": {
+                    "tag": "standard_icon",
+                    "token": "status-meeting_outlined",
+                    "color": "black"
+                }
+            },
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "Created at: ${created_at}",
+                    "text_size": "normal_v2"
+                },
+                "icon": {
+                    "tag": "standard_icon",
+                    "token": "calendar-date_outlined",
+                    "color": "black"
+                }
+            },
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "Updated at: ${updated_at}",
+                    "text_size": "normal_v2"
+                },
+                "icon": {
+                    "tag": "standard_icon",
+                    "token": "refresh_outlined",
+                    "color": "black"
+                }
+            },
+            {
+                "tag": "hr"
+            },
+            {
+                "tag": "column_set",
+                "horizontal_spacing": "8px",
+                "horizontal_align": "left",
+                "columns": [
+                    {
+                        "tag": "column",
+                        "width": "auto",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "text": {
+                                    "tag": "plain_text",
+                                    "content": "View on GitHub"
+                                },
+                                "type": "primary",
+                                "width": "default",
+                                "behaviors": [
+                                    {
+                                        "type": "open_url",
+                                        "default_url": "${html_url}",
+                                        "pc_url": "",
+                                        "ios_url": "",
+                                        "android_url": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "vertical_spacing": "8px",
+                        "horizontal_align": "left",
+                        "vertical_align": "top"
+                    },
+                    {
+                        "tag": "column",
+                        "width": "auto",
+                        "elements": [
+                            {
+                                "tag": "button",
+                                "text": {
+                                    "tag": "plain_text",
+                                    "content": "View Actor Profile"
+                                },
+                                "type": "default",
+                                "width": "default",
+                                "behaviors": [
+                                    {
+                                        "type": "open_url",
+                                        "default_url": "${actor_url}",
+                                        "pc_url": "",
+                                        "ios_url": "",
+                                        "android_url": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "vertical_spacing": "8px",
+                        "horizontal_align": "left",
+                        "vertical_align": "top"
+                    }
+                ]
+            }
+        ]
+    },
+    "header": {
+        "title": {
+            "tag": "plain_text",
+            "content": "${event_type_display} · ${action}"
+        },
+        "subtitle": {
+            "tag": "plain_text",
+            "content": "Repository: ${repo_name}"
+        },
+        "text_tag_list": [
+            {
+                "tag": "text_tag",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "${repo_name}"
+                },
+                "color": "wathet"
+            },
+            {
+                "tag": "text_tag",
+                "text": {
+                    "tag": "plain_text",
+                    "content": "${event_type}"
+                },
+                "color": "turquoise"
+            }
+        ],
+        "template": "${header_color}",
+        "icon": {
+            "tag": "standard_icon",
+            "token": "robot_outlined"
+        }
+    }
+},
+  "variables": [
+    {
+      "type": "text",
+      "name": "action",
+      "apiName": "action",
+      "mockData": "closed"
+    },
+    {
+      "type": "text",
+      "name": "repo_name",
+      "apiName": "repo_name",
+      "mockData": "xreal-site"
+    },
+    {
+      "type": "text",
+      "name": "event_type",
+      "apiName": "event_type",
+      "mockData": "pull_request"
+    },
+    {
+      "type": "text",
+      "name": "event_type_display",
+      "apiName": "event_type_display",
+      "mockData": "Pull Request"
+    },
+    {
+      "type": "text",
+      "name": "title",
+      "apiName": "title",
+      "mockData": "Add new pipeline logic"
+    },
+    {
+      "type": "text",
+      "name": "description",
+      "apiName": "description",
+      "mockData": "PR #123 merged to main"
+    },
+    {
+      "type": "text",
+      "name": "actor",
+      "apiName": "actor",
+      "mockData": "zijian"
+    },
+    {
+      "type": "text",
+      "name": "actor_url",
+      "apiName": "actor_url",
+      "mockData": "https://github.com/zijian"
+    },
+    {
+      "type": "text",
+      "name": "status",
+      "apiName": "status",
+      "mockData": "success"
+    },
+    {
+      "type": "text",
+      "name": "ref_name",
+      "apiName": "ref_name",
+      "mockData": "main"
+    },
+    {
+      "type": "text",
+      "name": "commit_sha",
+      "apiName": "commit_sha",
+      "mockData": "abcdef1234567890"
+    },
+    {
+      "type": "text",
+      "name": "commit_message",
+      "apiName": "commit_message",
+      "mockData": "feat: update CI trigger logic"
+    },
+    {
+      "type": "text",
+      "name": "html_url",
+      "apiName": "html_url",
+      "mockData": "https://github.com/org/repo/pull/123"
+    },
+    {
+      "type": "text",
+      "name": "created_at",
+      "apiName": "created_at",
+      "mockData": "2025-10-11 14:20"
+    },
+    {
+      "type": "text",
+      "name": "updated_at",
+      "apiName": "updated_at",
+      "mockData": "2025-10-11 14:40"
+    },
+    {
+      "type": "text",
+      "name": "header_color",
+      "apiName": "header_color",
+      "mockData": "green"
+    }
+  ]
+}
