@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.6.0...v1.7.0) (2026-03-03)
+
+
+### Features
+
+* log template data payload before sending Feishu notification ([52c8cc9](https://github.com/gaming-org/feishu-notify-action/commit/52c8cc967b0ee621a7ec66f7b19a31e197f17a2c))
+
 ## [1.6.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.2...v1.6.0) (2026-03-03)
 
 
