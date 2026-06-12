@@ -22,7 +22,7 @@ async function run() {
     } else {
       templateData = parseEventToTemplateData();
     }
-
+    core.info(`Payload: ${JSON.stringify(templateData)}`);
     const feishu = new FeishuClient(appId, appSecret);
     const result = await feishu.sendCard(chatId, templateId, templateData);
 

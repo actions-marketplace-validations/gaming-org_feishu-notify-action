@@ -28,9 +28,9 @@
     "test": "echo \"No tests specified\""
   },
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.1",
-    "@larksuiteoapi/node-sdk": "^1.55.0"
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0",
+    "@larksuiteoapi/node-sdk": "^1.59.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.1",

@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.7.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.6.0...v1.7.0) (2026-03-03)
+
+
+### Features
+
+* log template data payload before sending Feishu notification ([52c8cc9](https://github.com/gaming-org/feishu-notify-action/commit/52c8cc967b0ee621a7ec66f7b19a31e197f17a2c))
+
+## [1.6.0](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.2...v1.6.0) (2026-03-03)
+
+
+### Features
+
+* log template data payload before sending card ([d79357b](https://github.com/gaming-org/feishu-notify-action/commit/d79357bb12d5f0e44158aa4c82fa193f487ab6fb))
+* log template data payload before sending card ([da24a53](https://github.com/gaming-org/feishu-notify-action/commit/da24a53c2b42856cd524d151e5ed5261ae4a9129))
+
+## [1.5.2](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.1...v1.5.2) (2026-03-03)
+
+
+### Bug Fixes
+
+* upgrade dependencies to resolve vulnerabilities ([fd4eb96](https://github.com/gaming-org/feishu-notify-action/commit/fd4eb96fa4718a85a03d929fa8d7d33d5ea28b99))
+* upgrade dependencies to resolve vulnerabilities ([57b6099](https://github.com/gaming-org/feishu-notify-action/commit/57b6099c082b90c41c9eb116e31c3c7c177c93a6))
+
 ## [1.5.1](https://github.com/gaming-org/feishu-notify-action/compare/v1.5.0...v1.5.1) (2025-10-11)
 
 
